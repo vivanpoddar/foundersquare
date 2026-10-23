@@ -20,7 +20,7 @@ We write like a student who builds things and is telling a friend where to be to
 ## Casing and punctuation
 
 - Headlines and buttons: sentence case ("Sponsor the night", "Get notified").
-- Mono labels: uppercase via CSS, written in sentence case in the source ("Seats, Nov 14").
+- Mono labels: uppercase via CSS, written in sentence case in the source ("Seats, Nov 12").
 - Section labels: "01 — About". Two-digit number, spaced em dash, name.
 - The middle dot ( · ) separates facts on one line: "Student-run · UC Berkeley · Est. 2026".
 - Brackets mark a slot to fill: "Best use of [Track Sponsor A]". Pair it with a `Badge`.
@@ -31,7 +31,7 @@ We write like a student who builds things and is telling a friend where to be to
 - Numerals always, even under ten, when they are a count or a time: "3 minutes per team", "Teams are usually two to four people" (words are fine for a loose range in a sentence).
 - Times: 12-hour, no leading zero, uppercase AM/PM with a space: "6:00 PM", "12:15 AM". Drop ":00" in prose ("Doors 6 PM"), keep it in schedules and labels.
 - Time zone once per view, where it matters: "6:00 PM PST".
-- Dates: "Saturday, November 14, 2026" in full; "Sat, Nov 14" in labels and tickers; "January 2027" when only the month is known.
+- Dates: "Thursday, November 12, 2026" in full; "Thu, Nov 12" in labels and tickers; "January 2027" when only the month is known.
 - Money: "$0", "Around $500 in credits or prizes". Never "$500+" or "up to".
 - Editions and sections use two digits: 01, 02, S1.
 
@@ -49,7 +49,7 @@ We write like a student who builds things and is telling a friend where to be to
 
 ## Examples from the site
 
-- Hero: "A student-run community of builders and founders at UC Berkeley. Our first event is Build Night: one night, one project, one demo, on Saturday, November 14."
+- Hero: "A student-run community of builders and founders at UC Berkeley. Our first event is Build Night: one night, one project, one demo, on Thursday, November 12."
 - Section lead: "A room for people who build."
 - Sponsors: "Build Night puts 100 to 150 Berkeley students in a room for one night, hands them your product, and asks them to ship something with it before midnight."
 - FAQ: "Do I need an idea?" "No. We post starter ideas at kickoff and sponsors bring problems they want solved."

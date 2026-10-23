@@ -3,7 +3,7 @@
 Static website for Founder Square, a student-run UC Berkeley builder community. Four HTML pages share `assets/site.css` and `assets/site.js`; no build step is required.
 
 - `/`: community homepage, waterfront photograph, upcoming event, About, registration banner.
-- `/events`: Agent's After Dark Build Night on November 14, 2026. Future events are announced only when confirmed.
+- `/events`: Agent's After Dark Build Night on November 12, 2026. Future events are announced only when confirmed.
 - `/build-night`: event details, registration by email, FAQ, and a Schedule section marked “Coming Soon...”. Event time and venue room are not yet confirmed.
 - `/sponsor`: direct sponsorship inquiries to `team@foundersquare.org`. No sponsorship tiers, attendance estimates, or embedded Google Form.
 

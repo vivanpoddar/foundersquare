@@ -1,60 +1,39 @@
 # Founder Square
 
-Site for Founder Square and Build Night at UC Berkeley, live at [foundersquare.org](https://foundersquare.org).
+Static website for Founder Square, a student-run UC Berkeley builder community. Four HTML pages share `assets/site.css` and `assets/site.js`; no build step is required.
 
-Four static pages, one stylesheet, one small script. No build step, no animation libraries.
+- `/`: community homepage, waterfront photograph, upcoming event, About, registration banner.
+- `/events`: Agent's After Dark Build Night on November 14, 2026. Future events are announced only when confirmed.
+- `/build-night`: event details, registration by email, FAQ, and a Schedule section marked “Coming Soon...”. Event time and venue room are not yet confirmed.
+- `/sponsor`: direct sponsorship inquiries to `team@foundersquare.org`. No sponsorship tiers, attendance estimates, or embedded Google Form.
 
-## Pages
+Vercel's `cleanUrls` configuration serves the HTML pages without file extensions.
 
-| URL | File | Who it is for |
-| --- | --- | --- |
-| `/` | `index.html` | Everyone. One line, two buttons (students → events, startups → sponsor), the next event, who we are. |
-| `/events` | `events.html` | Students. Upcoming events, with Build Night 01 first. |
-| `/build-night` | `build-night.html` | Build Night 01: tracks, run sheet, what to bring, FAQ, register. |
-| `/sponsor` | `sponsor.html` | Startups. Tiers, why sponsor, and the interest form. |
+## Design
 
-Vercel's `cleanUrls` serves `events.html` at `/events`, so links across the site are written without the `.html` suffix.
+The site retains the original Founder Square logo and black footer, with serif headings, white and pale red surfaces, and muted red actions. The alternative sans-serif comparison preview is not part of this repository change.
 
-## Look
+The homepage photograph is Francisco Delgado's “Sunrise by the Ferry Building,” used under the [Unsplash License](https://unsplash.com/photos/HdtcZUI3Qvk). Its credit appears in the footer. It depicts San Francisco Bay, not the event venue. Other SF photo galleries have been removed.
 
-Red, white and black. `assets/site.css` holds the handful of colour tokens at the top (`--red`, `--ink`, `--cream`) and everything else. The palm trees in the hero and footer are one file, `assets/palms.svg`, used as a CSS mask so the same silhouette can be red on the home page and dark grey in the footer. The only motion is hover states, the FAQ opening, and the countdown ticking.
+## Contact and registration
 
-## Shared assets
+All email links use `team@foundersquare.org`, including static HTML fallbacks and footer copy-address buttons. Registration opens an email draft; the team confirms attendance and sends venue information by reply. The sponsor page also opens an email draft directly. No backend or Google Forms notification settings are required by the site.
 
-- `assets/site.css`: the whole stylesheet.
-- `assets/site.js`: the contact address (`CONTACT`), the mobile menu, the copy-address buttons and the countdown to doors.
-- `assets/palms.svg`: the palm-tree silhouette.
+## Details still to announce
 
-## Sponsor interest form
-
-The form on `/sponsor` is a Google Form owned by Adi's Gmail account, which is also where the response notifications go. Short link: <https://forms.gle/mi3dWKbafs6CBR6r9>. To route notifications to another inbox, share the form with that address as an editor, then turn on "Get email notifications for new responses" from that account (Responses tab, three-dot menu).
-
-To point the page at a different form, change the two URLs in `sponsor.html`: the iframe `src` (which ends in `?embedded=true`) and the "Open it in a new tab" link right under it.
-
-## Contact address
-
-Set once as `CONTACT` at the top of `assets/site.js`. It rewrites every `mailto:`, the copy buttons and the footer address on load. The same address is written into the HTML as a fallback, so change it there too (search for the address) when the org gets its own inbox.
-
-## Placeholders
-
-Everything still to fill in is marked in the HTML with a `PLACEHOLDER` comment and, where visitors can see it, a chip in plain words:
-
-- On `/build-night`: the venue room, the registration form (`#register` takes registrations by email until a form exists), and the three sponsor tracks ("Open slot").
-- On `/events`: the mailing list, and every event after Build Night 01 ("Tentative").
-- In the footer: the social links.
-
-## Brand
-
-The logo, tokens, components and the identity, language, motion and imagery guides in [`brand/`](brand/) describe the earlier dark, line-art direction. The site now uses the simpler red-and-white look described above; the brand folder is kept for the logo mark and as reference until it is updated.
+- Schedule and event time
+- Venue room
+- Future event dates
+- Social links
 
 ## Local preview
 
-```bash
-npx serve .
+Use a static server that resolves extensionless HTML routes, or open the `.html` paths directly with Python's server:
+
+```sh
+python3 -m http.server 8000
 ```
 
-`serve` resolves the clean URLs the same way Vercel does. `python3 -m http.server` works too, but you will have to type the `.html` suffixes yourself.
+Production deploys from `main` through Vercel. Pull request branches may receive Vercel preview deployments.
 
-## Deploys
-
-Pushes to `main` deploy to production on Vercel; other branches get preview URLs.
+The `brand/` folder retains earlier design references and original logo assets. Current site styles are in `assets/site.css`. Local `.taste-skill/` inspection reports are ignored by Git.

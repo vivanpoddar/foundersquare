@@ -1,135 +1,142 @@
 <!doctype html>
-<html lang="en-US">
+<html lang="en">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#faf6f5">
+<meta name="description" content="Founder Square brings UC Berkeley students together to build, meet collaborators and demo something real. Agent's After Dark Build Night: November 14, 2026. Schedule coming soon.">
 <title>Founder Square</title>
-<meta name="description" content="Founder Square is a student-run community of builders and founders at UC Berkeley. Next event: Build Night 01, Saturday, November 14, 2026.">
-<meta name="theme-color" content="#d6282b">
-<meta property="og:title" content="Founder Square">
-<meta property="og:description" content="The room where Berkeley builds. Next event: Build Night 01, Saturday, November 14, 2026.">
-<meta property="og:type" content="website">
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=Newsreader:opsz,wght@6..72,400;6..72,500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/assets/site.css">
 </head>
 <body>
 <a class="skip" href="#main">Skip to content</a>
-
-<header class="hdr">
-  <div class="wrap hdr-in">
-    <a class="brand" href="/" aria-label="Founder Square home"><svg class="mark" viewBox="0 0 80 80" aria-hidden="true" focusable="false"><path fill="currentColor" d="M0 0h80v20h-80zM0 20h20v60h-20zM30 30h50v20h-50zM50 50h30v10h-30zM30 60h50v20h-50z"/></svg><span>Founder Square</span></a>
-    <button class="burger" type="button" aria-expanded="false" aria-controls="nav" aria-label="Menu"><span></span><span></span><span></span></button>
-    <nav class="nav" id="nav" aria-label="Primary">
-      <a href="/events">Events</a>
-      <a href="/build-night">Build Night</a>
-      <a href="/sponsor">Sponsor</a>
-      <a href="#about">About</a>
-    </nav>
-    <a class="btn btn-primary btn-sm hdr-cta" href="/sponsor">Sponsor us</a>
-  </div>
+<header class="header wrap">
+<a class="brand" href="/" aria-label="Founder Square home">
+<svg class="mark" viewBox="0 0 80 80" aria-hidden="true" focusable="false">
+<path fill="currentColor" d="M0 0h80v20h-80zM0 20h20v60h-20zM30 30h50v20h-50zM50 50h30v10h-30zM30 60h50v20h-50z"/>
+</svg>
+<span>Founder Square</span>
+</a>
+<nav aria-label="Primary">
+<a href="/events">Events</a>
+<a href="#about">About</a>
+<a href="/sponsor">Sponsor</a>
+</nav>
 </header>
-
 <main id="main">
-
-<!-- hero: one line, two doors, palm trees -->
 <section class="hero">
-  <div class="wrap hero-in">
-    <span class="eyebrow"><span class="dot" aria-hidden="true"></span>UC Berkeley · Student-run</span>
-    <h1>The room where <em>Berkeley</em> builds.</h1>
-    <p class="lead">A student-run community of builders and founders. Come build something real in one night, show it off, and meet the people you'll build the next thing with.</p>
-    <div class="actions">
-      <a class="btn btn-primary btn-lg" href="/events">See upcoming events <span aria-hidden="true">→</span></a>
-      <a class="btn btn-lg" href="/sponsor">Sponsor an event</a>
-    </div>
-  </div>
-  <div class="sun" aria-hidden="true"></div>
-  <div class="palms" aria-hidden="true"></div>
+<div class="hero-title wrap">
+<h1>Founder Square</h1>
+</div>
+<div class="hero-scene">
+<img src="/assets/bay-waterfront.jpg" alt="Palm trees beside San Francisco Bay, with the Bay Bridge in the morning light" fetchpriority="high">
+<div class="hero-wash">
+</div>
+<div class="hero-copy wrap">
+
+<div class="hero-event">
+<h2>Agent's After Dark<br>Build Night</h2>
+<p>November 14 · UC Berkeley<br>Schedule coming soon</p>
+<a class="button" href="/build-night#signup">Register for Build Night ↗</a>
+</div>
+</div>
+
+</div>
+</section>
+<section class="section wrap upcoming">
+<div class="section-heading">
+<h2>Upcoming events</h2>
+<a class="text-link" href="/events">All events ↗</a>
+</div>
+<article class="event-row">
+<div class="event-date">
+<time datetime="2026-11-14">
+<strong>14</strong>
+<span>November<br>Saturday, 2026</span>
+</time>
+</div>
+<div class="event-info">
+<h3>
+<a href="/build-night">Agent's After Dark Build Night</a>
+</h3>
+<p>Student build-a-thon at UC Berkeley.</p>
+<p class="secondary">UC Berkeley · Free · Schedule coming soon</p>
+</div>
+<div class="event-aside">
+<p>Come solo or with a team.<br>Room shared with registrants.</p>
+<a class="text-link" href="/build-night">Details & registration ↗</a>
+</div>
+</article>
+
 </section>
 
-<!-- the next event: one card, one button -->
-<section class="next" aria-labelledby="next-title">
-  <div class="wrap">
-    <div class="card next-card">
-      <div>
-        <span class="chip live">Next up</span>
-        <h2 id="next-title">Build Night 01</h2>
-        <p class="muted">One night, one project, one demo. 100 to 150 students, free, UC Berkeley.</p>
-      </div>
-      <div class="facts">
-        <div class="fact"><b>When</b>Saturday, November 14, 2026<br><span class="muted small">Doors 6:00 PM · Demos after midnight</span></div>
-        <!-- PLACEHOLDER: building and room once booked -->
-        <div class="fact"><b>Where</b>UC Berkeley<br><span class="muted small">Room announced to registrants</span></div>
-      </div>
-      <div class="next-cta">
-        <div class="countdown" id="countdown" role="timer" aria-label="Countdown to doors">
-          <span class="u"><b data-cd="d">00</b><small>days</small></span>
-          <span class="u"><b data-cd="h">00</b><small>hrs</small></span>
-          <span class="u"><b data-cd="m">00</b><small>min</small></span>
-          <span class="u"><b data-cd="s">00</b><small>sec</small></span>
-        </div>
-        <span class="muted small" id="boardState">until doors open</span>
-        <a class="btn btn-primary" href="/build-night">Build Night details <span aria-hidden="true">→</span></a>
-      </div>
-    </div>
-  </div>
+<section class="about wrap section" id="about">
+<h2>About</h2>
+<div>
+<p class="statement">Founder Square is a student-run community at UC Berkeley. We bring people together to turn an idea into something you can actually try.</p>
+<p>Our nights are for building, finding collaborators, and showing your work. Come with a project, a half-formed thought, or just your laptop. You don’t need a startup. You don’t need a team.</p>
+<a class="text-link" href="mailto:team@foundersquare.org?subject=Helping%20at%20Founder%20Square">Help make the next night happen ↗</a>
+</div>
 </section>
-
-<!-- who we are -->
-<section class="section" id="about" aria-labelledby="about-title">
-  <div class="wrap about">
-    <div>
-      <span class="eyebrow">About</span>
-      <h2 id="about-title">Who we are</h2>
-    </div>
-    <div class="about-copy">
-      <p>Founder Square is a student-run community at UC Berkeley for people who would rather build the thing than talk about building it. We put on nights where you build something real and show it, starting with Build Night on November 14.</p>
-      <p>Sponsors show up with credits, prizes and judges because a demo at 1 AM tells them more about a student than a resume does. You leave with a project, a few new collaborators, and the next event on your calendar.</p>
-      <!-- PLACEHOLDER: first names until roles exist -->
-      <div class="crew"><b>The crew</b><span>Adi</span><span>Sriram</span><span>Vivan</span><span>Ryan</span><span>Vihaan</span><span>Tushar</span><span>Jerry</span></div>
-      <p><a href="mailto:adityadwivedi0409@gmail.com?subject=Volunteering">Want to help run the next one? Email us <span aria-hidden="true">→</span></a></p>
-    </div>
-  </div>
+<section class="register-band" id="register">
+<div class="wrap band-inner">
+<div>
+<h2>Agent's After Dark Build Night</h2>
+<p>November 14, 2026 · UC Berkeley · Free for Berkeley students</p>
+</div>
+<a class="button light" href="/build-night#signup">Register for the next event ↗</a>
+</div>
 </section>
-
-<!-- one red band, one button -->
-<section class="band">
-  <div class="wrap">
-    <h2>Build Night 01 is Saturday, November 14.</h2>
-    <p>Free for any UC Berkeley student. Bring a laptop and we'll handle the rest.</p>
-    <a class="btn btn-white btn-lg" href="/build-night#register">Register</a>
-  </div>
-</section>
-
 </main>
-
-<footer class="footer">
-  <div class="wrap foot-in">
-    <div class="foot-brand">
-      <span class="foot-name"><svg class="mark" viewBox="0 0 80 80" aria-hidden="true" focusable="false"><path fill="currentColor" d="M0 0h80v20h-80zM0 20h20v60h-20zM30 30h50v20h-50zM50 50h30v10h-30zM30 60h50v20h-50z"/></svg>Founder Square</span>
-      <p>Student-run at UC Berkeley. The room where Berkeley builds.</p>
-    </div>
-    <div>
-      <h3>Contact</h3>
-      <!-- the address comes from the CONTACT constant in assets/site.js -->
-      <a href="mailto:adityadwivedi0409@gmail.com" data-email="">adityadwivedi0409@gmail.com</a>
-      <br><button type="button" class="copy-btn" data-copy="">Copy address</button>
-    </div>
-    <div>
-      <h3>Pages</h3>
-      <nav aria-label="Footer"><a href="/">Home</a><a href="/events">Events</a><a href="/build-night">Build Night</a><a href="/sponsor">Sponsor</a></nav>
-    </div>
-    <div>
-      <h3>Follow</h3>
-      <!-- PLACEHOLDER: social links -->
-      <p>Socials coming soon.</p>
-    </div>
-  </div>
-  <div class="wrap foot-bottom"><span>© 2026 Founder Square · Student-run, not a university program</span><span>Build Night 01 · Sat, Nov 14, 2026</span></div>
-  <div class="palms" aria-hidden="true"></div>
+<footer class="footer original-footer">
+<div class="wrap foot-in">
+<div class="foot-brand">
+<a class="foot-name" href="/">
+<svg class="mark" viewBox="0 0 80 80" aria-hidden="true" focusable="false">
+<path fill="currentColor" d="M0 0h80v20h-80zM0 20h20v60h-20zM30 30h50v20h-50zM50 50h30v10h-30zM30 60h50v20h-50z"/>
+</svg>
+<span>Founder Square</span>
+</a>
+<p>Student-run at UC Berkeley.</p>
+</div>
+<div>
+<h3>Contact</h3>
+<a href="mailto:team@foundersquare.org">team@foundersquare.org</a>
+<br>
+<button type="button" class="copy-btn" data-copy>Copy address</button>
+</div>
+<div>
+<h3>Pages</h3>
+<nav aria-label="Footer">
+<a href="/">Home</a>
+<a href="/events">Events</a>
+<a href="/build-night">Build Night</a>
+<a href="/sponsor">Sponsor</a>
+<a href="#about">About</a>
+</nav>
+</div>
+<div>
+<h3>Follow</h3>
+<p>Socials coming soon.</p>
+</div>
+</div>
+<div class="wrap foot-bottom">
+<span>© 2026 Founder Square · Student-run, not a university program</span>
+<span>Agent's After Dark Build Night · Sat, Nov 14, 2026</span>
+</div>
+<div class="wrap photo-credits">
+<details>
+<summary>Photo credit</summary>
+<p>
+<a href="https://unsplash.com/photos/HdtcZUI3Qvk">Francisco Delgado / Unsplash License</a>. Waterfront photograph; event venue is UC Berkeley.</p>
+</details>
+</div>
 </footer>
-<script src="/assets/site.js"></script>
+<script src="/assets/site.js">
+</script>
 </body>
 </html>

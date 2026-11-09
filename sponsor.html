@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="theme-color" content="#faf6f5">
-<meta name="description" content="Founder Square brings UC Berkeley students together to build, meet collaborators and demo something real. Agent's After Dark Build Night: November 12, 2026. Schedule coming soon.">
+<meta name="theme-color" content="#0a0507">
+<meta name="description" content="Founder Square brings UC Berkeley students together to build, meet collaborators and demo something real. Agent's After Dark Build Night: Monday, November 16, 2026, 4 to 9 PM at Chou Hall N100, Berkeley Haas. Free for UC Berkeley students.">
 <title>Sponsor · Founder Square</title>
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -12,28 +12,114 @@
 <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=Newsreader:opsz,wght@6..72,400;6..72,500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/assets/site.css">
 </head>
-<body>
+<body class="space-page">
 <a class="skip" href="#main">Skip to content</a>
+<div class="hdr-bar">
 <header class="header wrap">
 <a class="brand" href="/" aria-label="Founder Square home">
-<img class="logo" src="/brand/logos/logo-red.svg" alt="" width="194" height="29">
+<img class="logo" src="/brand/logos/logo-white.svg" alt="" width="194" height="29">
+<img class="logo-mark" src="/brand/logos/mark-white.svg" alt="" width="24" height="24">
 </a>
 <nav aria-label="Primary">
 <a href="/events">Events</a>
-<a href="#about">About</a>
-<a href="/sponsor" aria-current="page">Sponsor</a>
+<a href="/sponsors">Sponsors</a>
+<a href="/sponsor" aria-current="page">Sponsor us</a>
+<a href="/#about">About</a>
 </nav>
+<a class="button hdr-cta" href="/sponsor#sponsorship-form">Sponsor us</a>
 </header>
+</div>
 <main id="main">
 <section class="page-head wrap">
-<h1>Sponsor</h1>
-<p class="statement">Interested in sponsoring Agent's After Dark Build Night?</p>
-<p class="measure">Contact our team directly to discuss sponsorship.</p>
-<a class="button" href="mailto:team@foundersquare.org?subject=Founder%20Square%20sponsorship">Email team@foundersquare.org ↗</a>
+<h1>Sponsor us</h1>
+<p class="statement">Put your product in front of Berkeley students who build with it the same night.</p>
+<p class="measure">Credits, prizes, a judge, a workshop or a table at the next event. Fill in the form below and the whole team gets it at team@foundersquare.org. We reply within a few days.</p>
+<div class="actions">
+<a class="button" href="#sponsorship-form">Fill in the sponsorship form</a>
+<a class="text-link" href="/sponsors">See our current sponsors ↗</a>
+</div>
 </section>
-
-
-
+<section class="wrap offer">
+<h2>What sponsors get</h2>
+<div class="offer-grid">
+<article>
+<h3>Your product in students’ hands</h3>
+<p>A room of builders using your API or tool for a whole evening, then demoing what they made with it.</p>
+</article>
+<article>
+<h3>A seat at the judging table</h3>
+<p>Judge the demos, present a prize in your name, or run a short workshop before the build starts.</p>
+</article>
+<article>
+<h3>Hiring without the resume pile</h3>
+<p>A table at the event and a reason to talk. You see projects and demos before you ever see a resume.</p>
+</article>
+</div>
+</section>
+<section class="contact-field" id="sponsorship-form">
+<div class="wrap form-layout">
+<div class="form-intro">
+<h2>Sponsorship form</h2>
+<p>Two minutes. Tell us who you are and what you would like to bring, and we come back with the details.</p>
+<dl class="form-facts">
+<dt>Next event</dt>
+<dd>Agent’s After Dark Build Night · Monday, November 16</dd>
+<dt>Reply</dt>
+<dd>Within a few days, from the team</dd>
+<dt>Prefer email?</dt>
+<dd><a class="inline-link" href="mailto:team@foundersquare.org?subject=Founder%20Square%20sponsorship">team@foundersquare.org</a></dd>
+</dl>
+</div>
+<form id="contactForm" class="sponsor-form" method="post" action="/api/contact" novalidate>
+<fieldset>
+<legend>About you</legend>
+<div class="row-2">
+<label>Name<input type="text" name="name" required autocomplete="name" maxlength="120"></label>
+<label>Role<input type="text" name="role" autocomplete="organization-title" maxlength="80" placeholder="Founder, DevRel, Recruiter…"></label>
+</div>
+<div class="row-2">
+<label>Company<input type="text" name="company" required autocomplete="organization" maxlength="160"></label>
+<label>Work email<input type="email" name="email" required autocomplete="email" maxlength="200"></label>
+</div>
+<label>Company website<input type="url" name="url" autocomplete="url" maxlength="200" placeholder="https://"></label>
+</fieldset>
+<fieldset>
+<legend>Sponsorship</legend>
+<label>Which event<select name="event">
+<option>Agent’s After Dark Build Night · Nov 16, 2026</option>
+<option>A future event</option>
+<option>Not sure yet</option>
+</select></label>
+<div class="check-group" role="group" aria-labelledby="bring-label">
+<span class="group-label" id="bring-label">What could you bring?</span>
+<div class="check-grid">
+<label class="check"><input type="checkbox" name="interests" value="API credits or product access">API credits or product access</label>
+<label class="check"><input type="checkbox" name="interests" value="Prizes">Prizes</label>
+<label class="check"><input type="checkbox" name="interests" value="A judge">A judge</label>
+<label class="check"><input type="checkbox" name="interests" value="A workshop or talk">A workshop or talk</label>
+<label class="check"><input type="checkbox" name="interests" value="A recruiting table">A recruiting table</label>
+<label class="check"><input type="checkbox" name="interests" value="Food or swag">Food or swag</label>
+<label class="check"><input type="checkbox" name="interests" value="Presenting sponsor">Presenting sponsor</label>
+<label class="check"><input type="checkbox" name="interests" value="Something else">Something else</label>
+</div>
+</div>
+<label>Rough budget<select name="budget">
+<option value="">Prefer not to say</option>
+<option>In-kind only (credits, prizes, swag)</option>
+<option>Under $500</option>
+<option>$500 to $1,000</option>
+<option>$1,000 to $3,000</option>
+<option>$3,000 or more</option>
+</select></label>
+</fieldset>
+<label>Anything else<textarea name="message" rows="5" maxlength="5000" placeholder="Timeline, constraints, questions, what you would want from us."></textarea></label>
+<div class="hp" aria-hidden="true"><label>Fax<input type="text" name="fax" tabindex="-1" autocomplete="off"></label></div>
+<button class="button" type="submit">Send sponsorship request</button>
+<p class="form-note">Goes to the whole team. No commitment.</p>
+<p class="form-status" id="form-status" role="status" aria-live="polite"></p>
+</form>
+</div>
+</section>
 <section class="about wrap section" id="about">
 <h2>About</h2>
 <div>
@@ -46,7 +132,7 @@
 <div class="wrap band-inner">
 <div>
 <h2>Agent's After Dark Build Night</h2>
-<p>November 12, 2026 · UC Berkeley · Free for Berkeley students</p>
+<p>Monday, November 16, 2026 · 4–9 PM · Chou Hall N100, Berkeley Haas · Free for Berkeley students</p>
 </div>
 <a class="button light" href="/build-night#signup">Register for the next event ↗</a>
 </div>
@@ -72,18 +158,27 @@
 <a href="/">Home</a>
 <a href="/events">Events</a>
 <a href="/build-night">Build Night</a>
-<a href="/sponsor">Sponsor</a>
-<a href="#about">About</a>
+<a href="/sponsors">Sponsors</a>
+<a href="/sponsor">Sponsor us</a>
+<a href="/#about">About</a>
+<a href="/admin">Team sign-in</a>
 </nav>
 </div>
 <div>
 <h3>Follow</h3>
-<p>Socials coming soon.</p>
+<!-- The URLs live in LINKS at the top of assets/site.js; links with no URL yet stay hidden. -->
+<ul class="social-links">
+<li><a data-link="instagram" href="#" hidden><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 2.2c3.2 0 3.6 0 4.8.1 3.3.1 4.8 1.7 4.9 4.9.1 1.3.1 1.6.1 4.8s0 3.6-.1 4.8c-.1 3.2-1.7 4.8-4.9 4.9-1.3.1-1.6.1-4.8.1s-3.6 0-4.8-.1c-3.3-.1-4.8-1.7-4.9-4.9C2.2 15.6 2.2 15.2 2.2 12s0-3.6.1-4.8C2.4 3.9 4 2.4 7.2 2.3 8.4 2.2 8.8 2.2 12 2.2M12 0C8.7 0 8.3 0 7.1.1 2.7.3.3 2.7.1 7.1 0 8.3 0 8.7 0 12s0 3.7.1 4.9c.2 4.4 2.6 6.8 7 7 1.2.1 1.6.1 4.9.1s3.7 0 4.9-.1c4.4-.2 6.8-2.6 7-7 .1-1.2.1-1.6.1-4.9s0-3.7-.1-4.9c-.2-4.4-2.6-6.8-7-7C15.7 0 15.3 0 12 0zm0 5.8a6.2 6.2 0 1 0 0 12.4 6.2 6.2 0 0 0 0-12.4zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.4-11.8a1.4 1.4 0 1 0 0 2.9 1.4 1.4 0 0 0 0-2.9z"/></svg>Instagram</a></li>
+<li><a data-link="x" href="#" hidden><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M18.2 2h3.4l-7.4 8.5L23 22h-6.8l-5.3-7-6.1 7H1.4l7.9-9.1L1 2h7l4.8 6.4L18.2 2zm-1.2 18h1.9L7.1 3.9H5.1L17 20z"/></svg>X</a></li>
+<li><a data-link="linkedin" href="#" hidden><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M20.4 20.4h-3.6v-5.6c0-1.3 0-3-1.8-3s-2.1 1.4-2.1 2.9v5.7H9.3V9h3.4v1.6c.5-.9 1.6-1.8 3.4-1.8 3.6 0 4.3 2.4 4.3 5.5v6.1zM5.3 7.4a2.1 2.1 0 1 1 0-4.2 2.1 2.1 0 0 1 0 4.2zM7.1 20.4H3.6V9h3.5v11.4zM22.2 0H1.8C.8 0 0 .8 0 1.7v20.5c0 1 .8 1.8 1.8 1.8h20.4c1 0 1.8-.8 1.8-1.8V1.7C24 .8 23.2 0 22.2 0z"/></svg>LinkedIn</a></li>
+<li><a data-link="lumaCalendar" href="#" hidden><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 0c.6 6.6 5.4 11.4 12 12-6.6.6-11.4 5.4-12 12-.6-6.6-5.4-11.4-12-12C6.6 11.4 11.4 6.6 12 0z"/></svg>Luma</a></li>
+</ul>
+<p class="social-fallback" data-socials-fallback>Socials coming soon.</p>
 </div>
 </div>
 <div class="wrap foot-bottom">
 <span>© 2026 Founder Square · Student-run, not a university program</span>
-<span>Agent's After Dark Build Night · Thu, Nov 12, 2026</span>
+<span>Agent's After Dark Build Night · Mon, Nov 16, 2026</span>
 </div>
 
 </footer>

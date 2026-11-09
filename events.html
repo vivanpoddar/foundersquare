@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="theme-color" content="#faf6f5">
-<meta name="description" content="Founder Square brings UC Berkeley students together to build, meet collaborators and demo something real. Agent's After Dark Build Night: November 12, 2026. Schedule coming soon.">
+<meta name="theme-color" content="#0a0507">
+<meta name="description" content="Founder Square brings UC Berkeley students together to build, meet collaborators and demo something real. Agent's After Dark Build Night: Monday, November 16, 2026, 4 to 9 PM at Chou Hall N100, Berkeley Haas. Free for UC Berkeley students.">
 <title>Events · Founder Square</title>
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -12,18 +12,23 @@
 <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=Newsreader:opsz,wght@6..72,400;6..72,500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/assets/site.css">
 </head>
-<body>
+<body class="space-page">
 <a class="skip" href="#main">Skip to content</a>
+<div class="hdr-bar">
 <header class="header wrap">
 <a class="brand" href="/" aria-label="Founder Square home">
-<img class="logo" src="/brand/logos/logo-red.svg" alt="" width="194" height="29">
+<img class="logo" src="/brand/logos/logo-white.svg" alt="" width="194" height="29">
+<img class="logo-mark" src="/brand/logos/mark-white.svg" alt="" width="24" height="24">
 </a>
 <nav aria-label="Primary">
 <a href="/events" aria-current="page">Events</a>
-<a href="#about">About</a>
-<a href="/sponsor">Sponsor</a>
+<a href="/sponsors">Sponsors</a>
+<a href="/sponsor">Sponsor us</a>
+<a href="/#about">About</a>
 </nav>
+<a class="button hdr-cta" href="/sponsor#sponsorship-form">Sponsor us</a>
 </header>
+</div>
 <main id="main">
 <section class="page-head wrap">
 <h1>Events</h1>
@@ -33,9 +38,9 @@
 <h2>Upcoming events</h2>
 <article class="event-row">
 <div class="event-date">
-<time datetime="2026-11-12">
-<strong>12</strong>
-<span>November<br>Thursday, 2026</span>
+<time datetime="2026-11-16">
+<strong>16</strong>
+<span>November<br>Monday, 2026</span>
 </time>
 </div>
 <div class="event-info">
@@ -43,17 +48,24 @@
 <a href="/build-night">Agent's After Dark Build Night</a>
 </h3>
 <p>Student build-a-thon at UC Berkeley.</p>
-<p class="secondary">UC Berkeley · Free · Schedule coming soon</p>
+<p class="secondary">4–9 PM · Chou Hall N100, Berkeley Haas · Free</p>
 </div>
 <div class="event-aside">
-<p>Come solo or with a team.<br>Room shared with registrants.</p>
+<p>Come solo or with a team.<br>Request a spot on Luma; the team approves registrations.</p>
+<div class="platform-links">
+<a class="text-link" data-link="luma" href="#" hidden>Register on Luma ↗</a>
+<a class="text-link" data-link="partiful" href="#" hidden>RSVP on Partiful ↗</a>
 <a class="text-link" href="/build-night">Details & registration ↗</a>
+</div>
 </div>
 </article>
 <div class="future">
 <h3>Future events</h3>
-<p>We’re starting with November 12. Future dates and formats will be shared once they’re confirmed.</p>
+<p>We’re starting with November 16. Future dates and formats will be shared once they’re confirmed. Every event goes up on our Luma and Partiful pages first.</p>
+<div class="platform-links">
+<a class="text-link" data-link="lumaCalendar" href="#" hidden>Follow us on Luma ↗</a>
 <a class="text-link" href="mailto:team@foundersquare.org?subject=Keep%20me%20posted%20on%20events">Ask to hear about the next one ↗</a>
+</div>
 </div>
 </section>
 
@@ -69,7 +81,7 @@
 <div class="wrap band-inner">
 <div>
 <h2>Agent's After Dark Build Night</h2>
-<p>November 12, 2026 · UC Berkeley · Free for Berkeley students</p>
+<p>Monday, November 16, 2026 · 4–9 PM · Chou Hall N100, Berkeley Haas · Free for Berkeley students</p>
 </div>
 <a class="button light" href="/build-night#signup">Register for the next event ↗</a>
 </div>
@@ -95,18 +107,27 @@
 <a href="/">Home</a>
 <a href="/events">Events</a>
 <a href="/build-night">Build Night</a>
-<a href="/sponsor">Sponsor</a>
-<a href="#about">About</a>
+<a href="/sponsors">Sponsors</a>
+<a href="/sponsor">Sponsor us</a>
+<a href="/#about">About</a>
+<a href="/admin">Team sign-in</a>
 </nav>
 </div>
 <div>
 <h3>Follow</h3>
-<p>Socials coming soon.</p>
+<!-- The URLs live in LINKS at the top of assets/site.js; links with no URL yet stay hidden. -->
+<ul class="social-links">
+<li><a data-link="instagram" href="#" hidden><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 2.2c3.2 0 3.6 0 4.8.1 3.3.1 4.8 1.7 4.9 4.9.1 1.3.1 1.6.1 4.8s0 3.6-.1 4.8c-.1 3.2-1.7 4.8-4.9 4.9-1.3.1-1.6.1-4.8.1s-3.6 0-4.8-.1c-3.3-.1-4.8-1.7-4.9-4.9C2.2 15.6 2.2 15.2 2.2 12s0-3.6.1-4.8C2.4 3.9 4 2.4 7.2 2.3 8.4 2.2 8.8 2.2 12 2.2M12 0C8.7 0 8.3 0 7.1.1 2.7.3.3 2.7.1 7.1 0 8.3 0 8.7 0 12s0 3.7.1 4.9c.2 4.4 2.6 6.8 7 7 1.2.1 1.6.1 4.9.1s3.7 0 4.9-.1c4.4-.2 6.8-2.6 7-7 .1-1.2.1-1.6.1-4.9s0-3.7-.1-4.9c-.2-4.4-2.6-6.8-7-7C15.7 0 15.3 0 12 0zm0 5.8a6.2 6.2 0 1 0 0 12.4 6.2 6.2 0 0 0 0-12.4zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.4-11.8a1.4 1.4 0 1 0 0 2.9 1.4 1.4 0 0 0 0-2.9z"/></svg>Instagram</a></li>
+<li><a data-link="x" href="#" hidden><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M18.2 2h3.4l-7.4 8.5L23 22h-6.8l-5.3-7-6.1 7H1.4l7.9-9.1L1 2h7l4.8 6.4L18.2 2zm-1.2 18h1.9L7.1 3.9H5.1L17 20z"/></svg>X</a></li>
+<li><a data-link="linkedin" href="#" hidden><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M20.4 20.4h-3.6v-5.6c0-1.3 0-3-1.8-3s-2.1 1.4-2.1 2.9v5.7H9.3V9h3.4v1.6c.5-.9 1.6-1.8 3.4-1.8 3.6 0 4.3 2.4 4.3 5.5v6.1zM5.3 7.4a2.1 2.1 0 1 1 0-4.2 2.1 2.1 0 0 1 0 4.2zM7.1 20.4H3.6V9h3.5v11.4zM22.2 0H1.8C.8 0 0 .8 0 1.7v20.5c0 1 .8 1.8 1.8 1.8h20.4c1 0 1.8-.8 1.8-1.8V1.7C24 .8 23.2 0 22.2 0z"/></svg>LinkedIn</a></li>
+<li><a data-link="lumaCalendar" href="#" hidden><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 0c.6 6.6 5.4 11.4 12 12-6.6.6-11.4 5.4-12 12-.6-6.6-5.4-11.4-12-12C6.6 11.4 11.4 6.6 12 0z"/></svg>Luma</a></li>
+</ul>
+<p class="social-fallback" data-socials-fallback>Socials coming soon.</p>
 </div>
 </div>
 <div class="wrap foot-bottom">
 <span>© 2026 Founder Square · Student-run, not a university program</span>
-<span>Agent's After Dark Build Night · Thu, Nov 12, 2026</span>
+<span>Agent's After Dark Build Night · Mon, Nov 16, 2026</span>
 </div>
 
 </footer>

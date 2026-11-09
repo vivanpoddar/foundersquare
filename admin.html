@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<meta name="theme-color" content="#0a0507">
+<title>Admin · Founder Square</title>
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=Newsreader:opsz,wght@6..72,400;6..72,500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/assets/site.css">
+</head>
+<body class="space-page admin-body">
+<a class="skip" href="#main">Skip to content</a>
+<div class="hdr-bar">
+<header class="header wrap">
+<a class="brand" href="/" aria-label="Founder Square home">
+<img class="logo" src="/brand/logos/logo-white.svg" alt="" width="194" height="29">
+<img class="logo-mark" src="/brand/logos/mark-white.svg" alt="" width="24" height="24">
+</a>
+<nav aria-label="Primary">
+<a href="/events">Events</a>
+<a href="/sponsors">Sponsors</a>
+<a href="/sponsor">Sponsor us</a>
+<a href="/#about">About</a>
+</nav>
+<a class="button hdr-cta" href="/sponsor#sponsorship-form">Sponsor us</a>
+</header>
+</div>
+<main id="main" class="wrap admin">
+<section id="login" class="admin-login" hidden>
+<h1>Team sign-in</h1>
+<p class="measure">Enter the team code to see every message sponsors have sent through the website.</p>
+<form id="loginForm" class="admin-form" autocomplete="off">
+<label>Team code
+<input type="password" name="code" id="code" required autocomplete="current-password">
+</label>
+<button class="button" type="submit">Sign in</button>
+<p class="form-status" id="loginStatus" role="status" aria-live="polite"></p>
+</form>
+</section>
+<section id="inbox" class="admin-inbox" hidden>
+<div class="admin-head">
+<div>
+<h1>Sponsor messages</h1>
+<p class="secondary" id="inboxMeta"></p>
+</div>
+<div class="admin-actions">
+<label class="admin-toggle"><input type="checkbox" id="showHandled"> Show handled</label>
+<button class="button light" type="button" id="refresh">Refresh</button>
+<button class="text-link" type="button" id="logout">Sign out</button>
+</div>
+</div>
+<p class="admin-note" id="setupNote" hidden></p>
+<ol class="messages" id="messages"></ol>
+<p class="admin-empty" id="empty" hidden>No messages yet. When a sponsor writes to us from the website, it shows up here and in the team inbox.</p>
+</section>
+</main>
+<footer class="footer original-footer">
+<div class="wrap foot-bottom">
+<span>© 2026 Founder Square · Team only</span>
+<a href="/">Back to the site</a>
+</div>
+</footer>
+<script src="/assets/admin.js"></script>
+</body>
+</html>

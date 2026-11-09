@@ -8,7 +8,13 @@ const crypto = require('crypto');
 
 const REDIS_URL = process.env.KV_REST_API_URL || process.env.UPSTASH_REDIS_REST_URL || '';
 const REDIS_TOKEN = process.env.KV_REST_API_TOKEN || process.env.UPSTASH_REDIS_REST_TOKEN || '';
-const ADMIN_CODE = process.env.ADMIN_CODE || '';
+// Team code. Until ADMIN_CODE is set on Vercel the site accepts DEFAULT_CODE,
+// but only while no real storage is connected: this repo is public, so the
+// default must never be what stands between the internet and stored messages.
+// Connect Redis and the default switches off until ADMIN_CODE is set.
+const DEFAULT_CODE = 'foundersquare-1116';
+const USING_DEFAULT_CODE = !process.env.ADMIN_CODE && !(REDIS_URL && REDIS_TOKEN);
+const ADMIN_CODE = process.env.ADMIN_CODE || (USING_DEFAULT_CODE ? DEFAULT_CODE : '');
 const SESSION_SECRET = process.env.SESSION_SECRET || ADMIN_CODE;
 const RESEND_API_KEY = process.env.RESEND_API_KEY || '';
 const MAIL_TO = process.env.MAIL_TO || 'team@foundersquare.org';
@@ -122,4 +128,4 @@ function safeParse(s) { try { return JSON.parse(s || '{}'); } catch { return {};
 const clientIp = req => (req.headers['x-forwarded-for'] || '').split(',')[0].trim() || req.socket?.remoteAddress || 'unknown';
 const clean = (v, max) => String(v == null ? '' : v).replace(/\s+/g, ' ').trim().slice(0, max);
 
-module.exports = { hasRedis, saveMessage, listMessages, setHandled, overLimit, makeSession, readSession, codeMatches, cookieHeader, sendEmail, json, readBody, clientIp, clean, ADMIN_CODE, RESEND_API_KEY };
+module.exports = { hasRedis, saveMessage, listMessages, setHandled, overLimit, makeSession, readSession, codeMatches, cookieHeader, sendEmail, json, readBody, clientIp, clean, ADMIN_CODE, USING_DEFAULT_CODE, RESEND_API_KEY };

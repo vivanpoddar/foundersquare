@@ -40,8 +40,9 @@
     const data = await r.json();
     if (!data.ok) { note.hidden = false; note.textContent = data.error || 'Could not load messages.'; show('inbox'); return; }
     messages = data.messages;
-    note.hidden = data.storage === 'redis' && data.email === 'on';
+    note.hidden = data.storage === 'redis' && data.email === 'on' && data.code !== 'default';
     note.textContent = [
+      data.code === 'default' ? 'You are signed in with the built-in default code. Set ADMIN_CODE on Vercel to replace it; it must be set before storage is connected.' : '',
       data.storage !== 'redis' ? 'Storage is not connected yet, so messages only live in memory until the next deploy.' : '',
       data.email !== 'on' ? 'Email is not connected yet, so new messages are not forwarded to team@foundersquare.org.' : '',
     ].filter(Boolean).join(' ');

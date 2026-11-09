@@ -4,7 +4,7 @@ const lib = require('../_lib');
 
 module.exports = async (req, res) => {
   if (req.method !== 'POST') return lib.json(res, 405, { ok: false, error: 'POST only' });
-  if (!lib.ADMIN_CODE) return lib.json(res, 503, { ok: false, error: 'Admin login is not set up yet (ADMIN_CODE is missing on the server).' });
+  if (!lib.ADMIN_CODE) return lib.json(res, 503, { ok: false, error: 'Admin login is not set up yet: storage is connected but ADMIN_CODE is missing on the server, so the default code is switched off. Set ADMIN_CODE on Vercel and redeploy.' });
   if (await lib.overLimit('login:' + lib.clientIp(req), 10, 900)) return lib.json(res, 429, { ok: false, error: 'Too many attempts. Try again in 15 minutes.' });
   const body = await lib.readBody(req);
   if (!lib.codeMatches(String(body.code || '').trim())) return lib.json(res, 401, { ok: false, error: 'That code is not right.' });

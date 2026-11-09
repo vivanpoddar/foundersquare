@@ -8,7 +8,7 @@ module.exports = async (req, res) => {
   if (!lib.readSession(req.headers.cookie)) return lib.json(res, 401, { ok: false, error: 'Sign in first.' });
   if (req.method === 'GET') {
     const messages = await lib.listMessages(500);
-    return lib.json(res, 200, { ok: true, messages, storage: lib.hasRedis() ? 'redis' : 'memory', email: lib.RESEND_API_KEY ? 'on' : 'off' });
+    return lib.json(res, 200, { ok: true, messages, storage: lib.hasRedis() ? 'redis' : 'memory', email: lib.RESEND_API_KEY ? 'on' : 'off', code: lib.USING_DEFAULT_CODE ? 'default' : 'env' });
   }
   if (req.method === 'POST') {
     const body = await lib.readBody(req);

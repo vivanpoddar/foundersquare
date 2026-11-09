@@ -25,7 +25,7 @@ Set these in the Vercel project (Settings → Environment Variables), then redep
 
 | Variable | What it is |
 | --- | --- |
-| `ADMIN_CODE` | The code the team types at `/admin`. Long and random; everyone shares it. |
+| `ADMIN_CODE` | The code the team types at `/admin`. Long and random; everyone shares it. Until it is set, the site accepts a default code (`DEFAULT_CODE` in `api/_lib.js`) but only while no Redis store is connected, since the repo is public. **Set `ADMIN_CODE` before connecting storage**, or sign-in stops working until you do. |
 | `SESSION_SECRET` | Optional second random string that signs the 30-day admin cookie. Defaults to `ADMIN_CODE`. |
 | `KV_REST_API_URL`, `KV_REST_API_TOKEN` | From **Storage → Create → Upstash for Redis** on the Vercel project; the integration adds both automatically. Messages are kept in a Redis list. |
 | `RESEND_API_KEY` | From [resend.com](https://resend.com) after adding `foundersquare.org` as a verified domain (three DNS records). Sends each message to the team inbox with the sponsor as reply-to. |

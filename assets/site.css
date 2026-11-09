@@ -383,7 +383,7 @@ a.tag:hover{background:var(--accent);color:#fff;text-decoration:none}
 
 /* phone header: mark only, three links, the red button */
 .logo-mark{display:none}
-@media(max-width:600px){.brand .logo{display:none}.brand .logo-mark{display:block;width:26px;height:26px}.header nav{flex-wrap:nowrap;gap:12px;font-size:13px}.header nav a[href="/sponsor"]{display:none}}
+@media(max-width:600px){.brand .logo{display:none}.brand .logo-mark{display:block;width:26px;height:26px}.header nav{flex-wrap:nowrap;gap:12px;font-size:13px}}
 
 /* ---- sticky header bar: everything stays one click away ---- */
 .hdr-bar{position:sticky;top:0;z-index:30;background:rgba(250,246,245,.88);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-bottom:1px solid rgba(33,27,27,.06)}
@@ -435,8 +435,8 @@ a.tag:hover{background:var(--accent);color:#fff;text-decoration:none}
 .sq-front{z-index:5}
 .sq-front .sq-tag{color:rgba(255,255,255,.85)}
 @media(prefers-reduced-motion:reduce){.space{clip-path:none;-webkit-clip-path:none}.space-events,.space-top,.space-bottom{opacity:1}}
-/* tablets: the red button already says Sponsor us, so the text link goes */
-@media(max-width:900px){.header nav{gap:18px;flex-wrap:nowrap}.header nav a{white-space:nowrap}.header nav a[href="/sponsor"]{display:none}.hdr-cta{padding:10px 14px;font-size:14px}}
+/* tablets: tighter nav, smaller red button */
+@media(max-width:900px){.header nav{gap:18px;flex-wrap:nowrap}.header nav a{white-space:nowrap}.hdr-cta{padding:10px 14px;font-size:14px}}
 
 /* =====================================================================
    Space look for the whole site. The home page keeps its light intro;
@@ -586,3 +586,5 @@ a.tag:hover{background:var(--accent);color:#fff;text-decoration:none}
   .space-top .replay{display:none}
   .space-bottom{bottom:14px}
 }
+/* In-page jumps to the sponsor list land below the sticky header. */
+.sponsor-list{scroll-margin-top:100px}

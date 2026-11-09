@@ -5,8 +5,7 @@ Static website for Founder Square, a student-run UC Berkeley builder community. 
 - `/`: community homepage, waterfront photograph, upcoming event, About, registration banner.
 - `/events`: Agent's After Dark Build Night on Monday, November 16, 2026, 4–9 PM, Chou Hall N100 at Berkeley Haas. Future events are announced only when confirmed.
 - `/build-night`: event details, prizes, registration on Luma (email as fallback), FAQ.
-- `/sponsor`: "Sponsor us". A contact form that goes to the team (see below), plus the plain email link.
-- `/sponsors`: the sponsors and partners of the current event, with a line and a link each. Logos can be added per card.
+- `/sponsor`: "Sponsors", everything for sponsors on one page: the current event's sponsors and partners (a line and a link each; logos can be added per card), what sponsors get, and the sponsorship form that goes to the team (see below). `/sponsors` redirects here.
 - `/admin`: team sign-in with the shared code; shows every message sent through the contact form, with reply and "mark handled".
 
 Vercel's `cleanUrls` configuration serves the HTML pages without file extensions.
@@ -44,7 +43,7 @@ All email links use `team@foundersquare.org`, including the footer copy-address 
 - A run-of-show schedule
 - Future event dates
 - The Luma, Partiful and social URLs in `LINKS`
-- Sponsor logos on `/sponsors`
+- Sponsor logos on `/sponsor`
 
 ## Future work
 

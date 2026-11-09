@@ -85,12 +85,23 @@ document.querySelectorAll('[data-copy]').forEach(button => {
   const stage = document.querySelector('.sq-stage'), pin = document.querySelector('.sq-pin'), sq = document.querySelector('.sq');
   if (!stage || !pin || !sq) return;
   if (matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  // Remembered per tab: moving between pages keeps you in space, a new tab
+  // (or reopening the site) plays the intro again.
   const KEY = 'fs-entered';
   let entered = false;
-  try { entered = localStorage.getItem(KEY) === '1'; } catch (e) {}
+  try { entered = sessionStorage.getItem(KEY) === '1'; } catch (e) {}
   if (entered) stage.classList.add('entered'); else { pin.classList.add('intro'); setTimeout(() => pin.classList.remove('intro'), 2400); }
   const replay = document.querySelector('[data-replay]');
-  if (replay) { replay.hidden = !entered; replay.addEventListener('click', () => { try { localStorage.removeItem(KEY); } catch (e) {} scrollTo(0, 0); location.reload(); }); }
+  if (replay) { replay.hidden = !entered; replay.addEventListener('click', () => { try { sessionStorage.removeItem(KEY); } catch (e) {} scrollTo({ top: 0, behavior: 'instant' }); location.reload(); }); }
+  // Once you are in, you stay in: the stage collapses to one screen so scrolling
+  // up reaches the top of the scene instead of zooming back out to the square.
+  function lockIn(rect) {
+    entered = true;
+    try { sessionStorage.setItem(KEY, '1'); } catch (e) {}
+    if (replay) replay.hidden = false;
+    stage.classList.add('entered');
+    scrollTo({ top: scrollY + rect.top, behavior: 'instant' });
+  }
   const ease = t => t < .5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2;
   const clamp = (v, a, b) => Math.min(b, Math.max(a, v));
   let ticking = false;
@@ -98,8 +109,8 @@ document.querySelectorAll('[data-copy]').forEach(button => {
     ticking = false;
     const rect = stage.getBoundingClientRect();
     const total = stage.offsetHeight - innerHeight;
-    const p = total > 10 ? clamp(-rect.top / total, 0, 1) : 1;
-    if (p > 0.78 && !entered) { entered = true; try { localStorage.setItem(KEY, '1'); } catch (e) {} if (replay) replay.hidden = false; }
+    let p = total > 10 ? clamp(-rect.top / total, 0, 1) : 1;
+    if (p > 0.8 && !entered) { lockIn(rect); p = 1; }
     const side = sq.offsetWidth || 1;
     const cover = Math.hypot(innerWidth, innerHeight) / side * 1.04;   // enough to hide every corner
     const zoom = ease(clamp(p / 0.72, 0, 1));

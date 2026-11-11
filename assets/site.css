@@ -588,3 +588,9 @@ a.tag:hover{background:var(--accent);color:#fff;text-decoration:none}
 }
 /* In-page jumps to the sponsor list land below the sticky header. */
 .sponsor-list{scroll-margin-top:100px}
+
+/* Let the expanded primary navigation wrap within the existing mobile header. */
+@media(max-width:760px){
+  .hdr-bar .header:has(a[href="/connector"]) nav[aria-label="Primary"]{flex-wrap:wrap;gap:0 12px;justify-content:flex-end}
+  .hdr-bar .header:has(a[href="/connector"]){height:auto;min-height:64px}
+}

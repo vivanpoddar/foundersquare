@@ -10,6 +10,12 @@ const TYPES = { '.html': 'text/html; charset=utf-8', '.css': 'text/css; charset=
 
 http.createServer(async (req, res) => {
   const url = new URL(req.url, 'http://localhost');
+  // Local configuration and worktree metadata must never be served as public assets.
+  let pathname;
+  try { pathname = decodeURIComponent(url.pathname); } catch { res.statusCode = 400; return res.end('bad path'); }
+  if (pathname.split('/').some(segment => segment.startsWith('.'))) {
+    res.statusCode = 404; return res.end('not found');
+  }
   if (url.pathname.startsWith('/api/')) {
     const file = path.join(ROOT, url.pathname.replace(/\/$/, '') + '.js');
     if (!fs.existsSync(file) || path.basename(file).startsWith('_')) { res.statusCode = 404; return res.end('no such function'); }
@@ -17,7 +23,7 @@ http.createServer(async (req, res) => {
     try { await require(file)(req, res); } catch (e) { console.error(e); res.statusCode = 500; res.end('function error: ' + e.message); }
     return;
   }
-  let p = decodeURIComponent(url.pathname);
+  let p = pathname;
   let file = path.join(ROOT, p);
   if (p.endsWith('/')) file = path.join(file, 'index.html');
   else if (!path.extname(file) && fs.existsSync(file + '.html')) file += '.html';

@@ -63,3 +63,7 @@ That serves the pages with clean URLs and mounts the `api/` functions the way Ve
 Production deploys from `main` through Vercel. Pull request branches may receive Vercel preview deployments.
 
 The brand system (logo files, tokens, identity, language, motion and imagery guides, component guidelines) is in `brand/`; live previews are in the [Founder Square design system](https://claude.ai/artifact/1Tdh7sFEqkBQz2f3n5RFuE). Site styles are in `assets/site.css`. Local `.taste-skill/` inspection reports are ignored by Git.
+
+## InterConnected by FounderSquare
+
+Open `/connector` to save and find people from events. [Local preview, account setup and first-event checklist](INTERCONNECTED.md).

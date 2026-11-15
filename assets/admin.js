@@ -55,7 +55,7 @@
   function renderSubmissions() {
     const shown = submissions.filter(s => !trackShown || s.track === trackShown);
     const count = t => submissions.filter(s => s.track === t).length;
-    $('#subMeta').textContent = `${submissions.length} total · Cognee ${count('Best Use of Cognee')} · Computer Vision ${count('Best Use of Computer Vision')} · Overall only ${count('Best Overall only')}`;
+    $('#subMeta').textContent = `${submissions.length} total · Fo ${count('Best Use of Fo')} · Cognee ${count('Best Use of Cognee')} · Computer Vision ${count('Best Use of Computer Vision')} · Overall only ${count('Best Overall only')}`;
     $('#subsGrid').innerHTML = shown.map(s => `
       <li class="message">
         <div class="message-head">

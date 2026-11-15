@@ -519,7 +519,7 @@ a.tag:hover{background:var(--accent);color:#fff;text-decoration:none}
 .prizes{padding-block:120px 90px}
 .prizes .section-heading{align-items:flex-end;flex-wrap:wrap;gap:20px}
 .prizes .section-heading p{max-width:480px;margin:0}
-.prize-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.prize-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:18px}
 .prize-grid article{padding:28px;display:grid;gap:10px;align-content:start}
 .prize-n{font-size:var(--small);color:#ff6b6b;letter-spacing:.08em}
 .prize-grid h3{font-size:clamp(24px,2.2vw,30px)}

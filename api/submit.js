@@ -6,7 +6,7 @@
 const lib = require('./_lib');
 
 const CLOSES = Date.parse(process.env.SUBMIT_CLOSES || '2026-11-16T20:05:00-08:00');
-const TRACKS = ['Best Use of Cognee', 'Best Use of Computer Vision', 'Best Overall only'];
+const TRACKS = ['Best Use of Fo', 'Best Use of Cognee', 'Best Use of Computer Vision', 'Best Overall only'];
 const TOOLS = ['Cognee', 'Slashy', 'Allowance', 'Silmaril', 'Other'];
 const isUrl = s => /^https?:\/\/[^\s.]+\.[^\s]+$/i.test(s);
 const isEmail = s => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(s);

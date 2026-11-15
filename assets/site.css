@@ -586,8 +586,6 @@ a.tag:hover{background:var(--accent);color:#fff;text-decoration:none}
   .space-top .replay{display:none}
   .space-bottom{bottom:14px}
 }
-/* In-page jumps to the sponsor list land below the sticky header. */
-.sponsor-list{scroll-margin-top:100px}
 
 /* Let the expanded primary navigation wrap within the existing mobile header. */
 @media(max-width:760px){
@@ -621,3 +619,8 @@ a.tag:hover{background:var(--accent);color:#fff;text-decoration:none}
 .track-filter{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:18px}
 .track-filter .tag{border:0;cursor:pointer;font:inherit;font-size:var(--small)}
 .track-filter .tag[aria-pressed="true"]{background:var(--red);color:#fff}
+/* In-page jumps (About, the sponsor list, the form) land below the sticky
+   header with room to breathe: header 77px, or about 95px on phones where the
+   nav wraps to two lines. */
+html{scroll-padding-top:112px}
+@media(max-width:600px){html{scroll-padding-top:132px}}

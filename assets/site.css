@@ -624,3 +624,8 @@ a.tag:hover{background:var(--accent);color:#fff;text-decoration:none}
    nav wraps to two lines. */
 html{scroll-padding-top:112px}
 @media(max-width:600px){html{scroll-padding-top:132px}}
+/* About after a tinted panel (the sponsorship form on /sponsor) needs its own
+   top spacing; elsewhere the section above already carries it. */
+.contact-field + .about{padding-top:120px}
+@media(max-width:900px){.contact-field + .about{padding-top:90px}}
+@media(max-width:600px){.contact-field + .about{padding-top:72px}}

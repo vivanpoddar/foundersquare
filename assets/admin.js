@@ -46,8 +46,26 @@
       data.storage !== 'redis' ? 'Storage is not connected yet, so messages only live in memory until the next deploy.' : '',
       data.email !== 'on' ? 'Email is not connected yet, so new messages are not forwarded to team@foundersquare.org.' : '',
     ].filter(Boolean).join(' ');
-    show('inbox'); render();
+    show('inbox'); render(); loadSubscribers();
   }
+
+  // Event email list: everyone who signed up through a "Hear about the next event" form.
+  let subscribers = [];
+  async function loadSubscribers() {
+    const r = await fetch('/api/admin/subscribers', { credentials: 'same-origin' });
+    const data = await r.json().catch(() => ({}));
+    subscribers = data.ok ? data.subscribers : [];
+    $('#subsMeta').textContent = data.ok ? `${subscribers.length} email${subscribers.length === 1 ? '' : 's'}` : (data.error || 'Could not load the email list.');
+    $('#subsList').innerHTML = subscribers.map(s => `<li><span>${esc(s.email)}</span><time class="secondary" datetime="${new Date(s.ts).toISOString()}">${when(s.ts)}</time></li>`).join('');
+    $('#subsEmpty').hidden = subscribers.length > 0;
+    $('#copySubs').hidden = subscribers.length === 0;
+  }
+  $('#copySubs').addEventListener('click', async e => {
+    const b = e.currentTarget, all = subscribers.map(s => s.email).join(', ');
+    try { await navigator.clipboard.writeText(all); b.textContent = 'Copied'; }
+    catch { b.textContent = 'Select the list below'; }
+    setTimeout(() => { b.textContent = 'Copy all emails'; }, 1600);
+  });
   function show(which) { login.hidden = which !== 'login'; inbox.hidden = which !== 'inbox'; if (which === 'login') $('#code').focus(); }
 
   $('#loginForm').addEventListener('submit', async e => {

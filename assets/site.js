@@ -204,3 +204,30 @@ document.querySelectorAll('[data-copy]').forEach(button => {
   });
   addEventListener('pageshow', () => { space.classList.remove('warping'); document.querySelectorAll('.planet.target').forEach(p => p.classList.remove('target')); target = 0.0035; });
 })();
+
+// "Hear about the next event" forms (footer on every page, /updates): one email field.
+(() => {
+  'use strict';
+  document.querySelectorAll('form[data-subscribe]').forEach(form => {
+    const status = form.querySelector('.form-status'), button = form.querySelector('button[type=submit]');
+    form.addEventListener('submit', async e => {
+      e.preventDefault();
+      const data = Object.fromEntries(new FormData(form).entries());
+      data.source = form.dataset.subscribe || '';
+      if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test((data.email || '').trim())) {
+        status.className = 'form-status err'; status.textContent = 'Please enter a working email.'; return;
+      }
+      button.disabled = true; status.className = 'form-status'; status.textContent = 'Adding you…';
+      try {
+        const r = await fetch('/api/subscribe', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(data) });
+        const out = await r.json().catch(() => ({}));
+        if (!r.ok || !out.ok) throw new Error(out.error || 'Could not add you');
+        form.reset(); status.className = 'form-status ok';
+        status.textContent = out.added === false ? "You're already on the list. We'll email you when the next event is up." : "You're on the list. We'll email you when the next event is up.";
+      } catch (err) {
+        status.className = 'form-status err';
+        status.innerHTML = `${err.message.replace(/</g, '&lt;')}. <a class="inline-link" href="mailto:team@foundersquare.org?subject=Keep%20me%20posted%20on%20events">Email us instead ↗</a>`;
+      } finally { button.disabled = false; }
+    });
+  });
+})();

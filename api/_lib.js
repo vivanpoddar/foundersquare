@@ -51,6 +51,26 @@ async function setHandled(id, handled) {
   memory.sets.handled = memory.sets.handled || {};
   if (handled) memory.sets.handled[id] = 1; else delete memory.sets.handled[id];
 }
+// Event email list: one hash field per address, so signing up twice changes nothing.
+const SUBS = 'fs:subscribers';
+async function saveSubscriber(email, source) {
+  const rec = JSON.stringify({ ts: Date.now(), source });
+  if (hasRedis()) return (await redis('HSETNX', SUBS, email, rec)) === 1;
+  memory.subs = memory.subs || {};
+  if (memory.subs[email]) return false;
+  memory.subs[email] = rec; return true;
+}
+async function listSubscribers() {
+  let flat;
+  if (hasRedis()) flat = await redis('HGETALL', SUBS);
+  else flat = Object.entries(memory.subs || {}).flat();
+  const out = [];
+  for (let i = 0; i < flat.length; i += 2) {
+    let rec = {}; try { rec = JSON.parse(flat[i + 1]); } catch {}
+    out.push({ email: flat[i], ts: rec.ts || 0, source: rec.source || '' });
+  }
+  return out.sort((a, b) => b.ts - a.ts);
+}
 // Allow `max` hits per `windowSec` for a key; returns true when over the limit.
 async function overLimit(key, max, windowSec) {
   const k = 'fs:rl:' + key;
@@ -128,4 +148,4 @@ function safeParse(s) { try { return JSON.parse(s || '{}'); } catch { return {};
 const clientIp = req => (req.headers['x-forwarded-for'] || '').split(',')[0].trim() || req.socket?.remoteAddress || 'unknown';
 const clean = (v, max) => String(v == null ? '' : v).replace(/\s+/g, ' ').trim().slice(0, max);
 
-module.exports = { hasRedis, saveMessage, listMessages, setHandled, overLimit, makeSession, readSession, codeMatches, cookieHeader, sendEmail, json, readBody, clientIp, clean, ADMIN_CODE, USING_DEFAULT_CODE, RESEND_API_KEY };
+module.exports = { hasRedis, saveMessage, listMessages, setHandled, saveSubscriber, listSubscribers, overLimit, makeSession, readSession, codeMatches, cookieHeader, sendEmail, json, readBody, clientIp, clean, ADMIN_CODE, USING_DEFAULT_CODE, RESEND_API_KEY };

@@ -6,6 +6,7 @@ Static website for Founder Square, a student-run UC Berkeley builder community. 
 - `/events`: Agent's After Dark Build Night on Monday, November 16, 2026, 4–9 PM, Chou Hall N100 at Berkeley Haas. Future events are announced only when confirmed.
 - `/build-night`: event details, prizes, registration on Luma (email as fallback), FAQ.
 - `/sponsor`: "Sponsors", everything for sponsors on one page: the current event's sponsors and partners (a line and a link each; logos can be added per card), what sponsors get, and the sponsorship form that goes to the team (see below). `/sponsors` redirects here.
+- `/submit`: the Build Night project submission form: team, members, one track, a 2-minute demo video link and the project link. Resubmitting with the same team name replaces the entry. Closes at 8:05 PM Pacific on Nov 16 (`SUBMIT_CLOSES` overrides). Judges read them in `/admin`, filtered by track, or copy them as CSV.
 - `/updates`: "Hear about the next event", a one-field email signup (the QR code target for event welcomes). The same form sits in every page's footer.
 - `/admin`: team sign-in with the shared code; shows every message sent through the contact form, with reply and "mark handled", plus the event email list with "Copy all emails".
 
@@ -19,7 +20,7 @@ The homepage photograph is Francisco Delgado's “Sunrise by the Ferry Building,
 
 ## Contact line and admin inbox
 
-The sponsor form on `/sponsor` posts to `api/contact.js`, a Vercel function that stores the message and emails it to `team@foundersquare.org`. The team reads the history at `/admin` after signing in with the shared code (`api/admin/*.js`). Event email signups post to `api/subscribe.js` and are stored in the Redis hash `fs:subscribers` (one entry per address); `/admin` lists them through `api/admin/subscribers.js`. Nothing here needs a build step; the `api/` folder is picked up by Vercel as Node functions.
+The sponsor form on `/sponsor` posts to `api/contact.js`, a Vercel function that stores the message and emails it to `team@foundersquare.org`. The team reads the history at `/admin` after signing in with the shared code (`api/admin/*.js`). Project submissions post to `api/submit.js` and are stored in the Redis hash `fs:submissions` (one entry per team); `/admin` lists them through `api/admin/submissions.js`. Event email signups post to `api/subscribe.js` and are stored in the Redis hash `fs:subscribers` (one entry per address); `/admin` lists them through `api/admin/subscribers.js`. Nothing here needs a build step; the `api/` folder is picked up by Vercel as Node functions.
 
 Set these in the Vercel project (Settings → Environment Variables), then redeploy:
 

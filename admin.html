@@ -42,6 +42,25 @@
 </form>
 </section>
 <section id="inbox" class="admin-inbox" hidden>
+<div class="admin-subs admin-submissions" id="submissions">
+<div class="admin-head">
+<div>
+<h2>Build Night submissions</h2>
+<p class="secondary" id="subMeta"></p>
+</div>
+<div class="admin-actions">
+<button class="button light" type="button" id="copyCsv" hidden>Copy as CSV</button>
+</div>
+</div>
+<div class="track-filter" role="group" aria-label="Filter by track" id="trackFilter">
+<button type="button" class="tag" data-track="" aria-pressed="true">All</button>
+<button type="button" class="tag" data-track="Best Use of Cognee" aria-pressed="false">Cognee</button>
+<button type="button" class="tag" data-track="Best Use of Computer Vision" aria-pressed="false">Computer Vision</button>
+<button type="button" class="tag" data-track="Best Overall only" aria-pressed="false">Overall only</button>
+</div>
+<ol class="messages" id="subsGrid"></ol>
+<p class="admin-empty" id="subEmpty" hidden>No submissions yet. Teams submit at foundersquare.org/submit until 8:05 PM.</p>
+</div>
 <div class="admin-head">
 <div>
 <h1>Sponsor messages</h1>

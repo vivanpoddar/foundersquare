@@ -231,3 +231,34 @@ document.querySelectorAll('[data-copy]').forEach(button => {
     });
   });
 })();
+
+// Build Night project submission at /submit: one entry per team name.
+(() => {
+  'use strict';
+  const form = document.getElementById('submitForm');
+  if (!form) return;
+  const status = document.getElementById('submitStatus'), button = form.querySelector('button[type=submit]');
+  const closed = () => { form.querySelectorAll('input, button').forEach(el => { el.disabled = true; }); document.getElementById('submitClosed').hidden = false; };
+  fetch('/api/submit').then(r => r.json()).then(d => { if (d.ok && !d.open) closed(); }).catch(() => {});
+  form.addEventListener('submit', async e => {
+    e.preventDefault();
+    const fd = new FormData(form), v = k => (fd.get(k) || '').toString().trim();
+    const data = {
+      team: v('team'), project: v('project'), oneLiner: v('oneLiner'), track: v('track'), video: v('video'), link: v('link'),
+      tools: fd.getAll('tools'), confirm: fd.get('confirm') === 'on', fax: v('fax'),
+      members: [1, 2, 3, 4].map(i => ({ name: v(`m${i}name`), email: v(`m${i}email`) })).filter(m => m.name || m.email),
+    };
+    if (!data.track) { status.className = 'form-status err'; status.textContent = 'Please pick one track.'; return; }
+    button.disabled = true; status.className = 'form-status'; status.textContent = 'Submitting…';
+    try {
+      const r = await fetch('/api/submit', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(data) });
+      const out = await r.json().catch(() => ({}));
+      if (r.status === 403) closed();
+      if (!r.ok || !out.ok) throw new Error(out.error || 'Could not submit');
+      status.className = 'form-status ok';
+      status.textContent = out.updated ? `Updated. ${data.team}'s new entry replaced the old one.` : `Submitted. ${data.team} is in for ${data.track}. Good luck.`;
+    } catch (err) {
+      status.className = 'form-status err'; status.textContent = err.message + ' If it keeps failing, find a Founder Square organizer.';
+    } finally { button.disabled = false; }
+  });
+})();

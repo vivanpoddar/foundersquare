@@ -46,8 +46,53 @@
       data.storage !== 'redis' ? 'Storage is not connected yet, so messages only live in memory until the next deploy.' : '',
       data.email !== 'on' ? 'Email is not connected yet, so new messages are not forwarded to team@foundersquare.org.' : '',
     ].filter(Boolean).join(' ');
-    show('inbox'); render(); loadSubscribers();
+    show('inbox'); render(); loadSubscribers(); loadSubmissions();
   }
+
+  // Build Night submissions: one card per team, filtered by track for each judging panel.
+  let submissions = [], trackShown = '';
+  const url = s => /^https?:\/\//i.test(s) ? esc(s) : '#';
+  function renderSubmissions() {
+    const shown = submissions.filter(s => !trackShown || s.track === trackShown);
+    const count = t => submissions.filter(s => s.track === t).length;
+    $('#subMeta').textContent = `${submissions.length} total · Cognee ${count('Best Use of Cognee')} · Computer Vision ${count('Best Use of Computer Vision')} · Overall only ${count('Best Overall only')}`;
+    $('#subsGrid').innerHTML = shown.map(s => `
+      <li class="message">
+        <div class="message-head">
+          <div><strong>${esc(s.project)}</strong> <span class="secondary">· ${esc(s.team)}</span></div>
+          <time datetime="${new Date(s.ts).toISOString()}">${when(s.ts)}</time>
+        </div>
+        <p class="message-body">${esc(s.oneLiner)}</p>
+        <div class="message-tags"><span class="tag">${esc(s.track)}</span>${(s.tools || []).map(t => `<span class="tag">${esc(t)}</span>`).join('')}</div>
+        <p class="secondary">${(s.members || []).map(m => `${esc(m.name)} (${esc(m.email)})`).join(' · ')}</p>
+        <div class="message-actions">
+          <a class="button" href="${url(s.video)}" target="_blank" rel="noopener">Watch the demo ↗</a>
+          <a class="text-link" href="${url(s.link)}" target="_blank" rel="noopener">Project ↗</a>
+        </div>
+      </li>`).join('');
+    $('#subEmpty').hidden = shown.length > 0;
+    $('#copyCsv').hidden = submissions.length === 0;
+  }
+  async function loadSubmissions() {
+    const r = await fetch('/api/admin/submissions', { credentials: 'same-origin' });
+    const data = await r.json().catch(() => ({}));
+    submissions = data.ok ? data.submissions : [];
+    renderSubmissions();
+  }
+  $('#trackFilter').addEventListener('click', e => {
+    const b = e.target.closest('[data-track]'); if (!b) return;
+    trackShown = b.dataset.track;
+    $('#trackFilter').querySelectorAll('[data-track]').forEach(x => x.setAttribute('aria-pressed', String(x === b)));
+    renderSubmissions();
+  });
+  $('#copyCsv').addEventListener('click', async e => {
+    const b = e.currentTarget, q = v => `"${String(v == null ? '' : v).replace(/"/g, '""')}"`;
+    const rows = [['Submitted', 'Team', 'Project', 'Track', 'One-liner', 'Demo video', 'Project link', 'Tools', 'Members']]
+      .concat(submissions.map(s => [new Date(s.ts).toISOString(), s.team, s.project, s.track, s.oneLiner, s.video, s.link, (s.tools || []).join('; '), (s.members || []).map(m => `${m.name} <${m.email}>`).join('; ')]));
+    try { await navigator.clipboard.writeText(rows.map(r => r.map(q).join(',')).join('\n')); b.textContent = 'Copied'; }
+    catch { b.textContent = 'Copy failed'; }
+    setTimeout(() => { b.textContent = 'Copy as CSV'; }, 1600);
+  });
 
   // Event email list: everyone who signed up through a "Hear about the next event" form.
   let subscribers = [];

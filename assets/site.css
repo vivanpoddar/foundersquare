@@ -610,3 +610,14 @@ a.tag:hover{background:var(--accent);color:#fff;text-decoration:none}
 .subs li{display:flex;justify-content:space-between;gap:20px;padding:10px 14px;background:var(--surface)}
 .foot-subscribe .foot-subscribe-row{flex-direction:column;align-items:stretch}
 .foot-subscribe .foot-subscribe-row .button{align-self:flex-start}
+/* Build Night submission form at /submit */
+.submit-head{padding-bottom:40px}
+.submit-field{padding-top:0;background:transparent}
+.submit-form{max-width:820px}
+.submit-form .confirm{font-size:var(--small)!important}
+@media(max-width:600px){.submit-form{padding:22px}.submit-form .row-2,.submit-form .check-grid{grid-template-columns:1fr}}
+/* admin: Build Night submissions, filtered by track */
+.admin-submissions{margin:0 0 64px;padding-top:0;border-top:0}
+.track-filter{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:18px}
+.track-filter .tag{border:0;cursor:pointer;font:inherit;font-size:var(--small)}
+.track-filter .tag[aria-pressed="true"]{background:var(--red);color:#fff}

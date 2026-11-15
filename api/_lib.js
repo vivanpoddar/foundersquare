@@ -71,6 +71,23 @@ async function listSubscribers() {
   }
   return out.sort((a, b) => b.ts - a.ts);
 }
+// Build night project submissions: one hash field per team (a slug of the team
+// name), so a team that resubmits replaces its earlier entry.
+const SUBMISSIONS = 'fs:submissions';
+const teamKey = name => name.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '').slice(0, 80);
+async function saveSubmission(sub) {
+  const field = teamKey(sub.team), rec = JSON.stringify(sub);
+  if (hasRedis()) { const n = await redis('HSET', SUBMISSIONS, field, rec); return n === 1; }
+  memory.submissions = memory.submissions || {};
+  const isNew = !memory.submissions[field];
+  memory.submissions[field] = rec; return isNew;
+}
+async function listSubmissions() {
+  const flat = hasRedis() ? await redis('HGETALL', SUBMISSIONS) : Object.entries(memory.submissions || {}).flat();
+  const out = [];
+  for (let i = 1; i < flat.length; i += 2) { try { out.push(JSON.parse(flat[i])); } catch {} }
+  return out.sort((a, b) => a.ts - b.ts);
+}
 // Allow `max` hits per `windowSec` for a key; returns true when over the limit.
 async function overLimit(key, max, windowSec) {
   const k = 'fs:rl:' + key;
@@ -148,4 +165,4 @@ function safeParse(s) { try { return JSON.parse(s || '{}'); } catch { return {};
 const clientIp = req => (req.headers['x-forwarded-for'] || '').split(',')[0].trim() || req.socket?.remoteAddress || 'unknown';
 const clean = (v, max) => String(v == null ? '' : v).replace(/\s+/g, ' ').trim().slice(0, max);
 
-module.exports = { hasRedis, saveMessage, listMessages, setHandled, saveSubscriber, listSubscribers, overLimit, makeSession, readSession, codeMatches, cookieHeader, sendEmail, json, readBody, clientIp, clean, ADMIN_CODE, USING_DEFAULT_CODE, RESEND_API_KEY };
+module.exports = { hasRedis, saveMessage, listMessages, setHandled, saveSubscriber, listSubscribers, saveSubmission, listSubmissions, overLimit, makeSession, readSession, codeMatches, cookieHeader, sendEmail, json, readBody, clientIp, clean, ADMIN_CODE, USING_DEFAULT_CODE, RESEND_API_KEY };

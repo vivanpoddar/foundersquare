@@ -33,63 +33,14 @@
 <section class="page-head wrap submit-head">
 <h1>Submit your project</h1>
 <p class="statement">One form per team, due at 8:00 PM. Pick one track and link a 2-minute demo video.</p>
-<p class="measure">Every team is also in the running for Best Overall. Need to fix something? Submit again with the same team name and your new entry replaces the old one, until the form closes at 8:05 PM.</p>
+<p class="measure">Every team is also in the running for Best Overall. Need to fix something? Use the edit link on the confirmation page, until the form closes at 8:05 PM.</p>
 </section>
 <section class="contact-field submit-field">
 <div class="wrap">
-<p class="admin-note" id="submitClosed" hidden>Submissions are closed. If you missed the deadline, find a Founder Square organizer right away.</p>
-<form id="submitForm" class="sponsor-form submit-form" novalidate>
-<fieldset>
-<legend>Your team</legend>
-<label>Team name<input type="text" name="team" maxlength="80" required></label>
-<div class="row-2">
-<label>Teammate 1 name<input type="text" name="m1name" autocomplete="name" maxlength="80" required></label>
-<label>Teammate 1 Berkeley email<input type="email" name="m1email" autocomplete="email" maxlength="200" required></label>
+<div class="submit-embed">
+<iframe src="https://docs.google.com/forms/d/e/1FAIpQLSdIjXGxNhaFxyw6tlOJWFneIw8m8r9bgaqksj1sY1HaQg4qXg/viewform?embedded=true" title="Agents after Dark project submission form" loading="lazy">Loading the form…</iframe>
 </div>
-<div class="row-2">
-<label>Teammate 2 name<input type="text" name="m2name" autocomplete="off" maxlength="80"></label>
-<label>Teammate 2 Berkeley email<input type="email" name="m2email" autocomplete="off" maxlength="200"></label>
-</div>
-<div class="row-2">
-<label>Teammate 3 name<input type="text" name="m3name" autocomplete="off" maxlength="80"></label>
-<label>Teammate 3 Berkeley email<input type="email" name="m3email" autocomplete="off" maxlength="200"></label>
-</div>
-<div class="row-2">
-<label>Teammate 4 name<input type="text" name="m4name" autocomplete="off" maxlength="80"></label>
-<label>Teammate 4 Berkeley email<input type="email" name="m4email" autocomplete="off" maxlength="200"></label>
-</div>
-</fieldset>
-<fieldset>
-<legend>Your project</legend>
-<label>Project name<input type="text" name="project" maxlength="100" required></label>
-<label>One-line description<input type="text" name="oneLiner" maxlength="140" required placeholder="What it does, in one sentence"></label>
-<div class="check-group" role="radiogroup" aria-labelledby="track-label">
-<span class="group-label" id="track-label">Track (pick one)</span>
-<div class="check-grid">
-<label class="check"><input type="radio" name="track" value="Best Use of Fo" required>Best Use of Fo</label>
-<label class="check"><input type="radio" name="track" value="Best Use of Cognee">Best Use of Cognee</label>
-<label class="check"><input type="radio" name="track" value="Best Use of Computer Vision">Best Use of Computer Vision</label>
-<label class="check"><input type="radio" name="track" value="Best Overall only">Best Overall only</label>
-</div>
-</div>
-<label>2-minute demo video link<input type="url" name="video" maxlength="300" required placeholder="Loom, unlisted YouTube, or Drive set to anyone with the link"></label>
-<label>Project link<input type="url" name="link" maxlength="300" required placeholder="GitHub repo or live URL"></label>
-<div class="check-group" role="group" aria-labelledby="tools-label">
-<span class="group-label" id="tools-label">Sponsor tools you used (optional)</span>
-<div class="check-grid">
-<label class="check"><input type="checkbox" name="tools" value="Cognee">Cognee</label>
-<label class="check"><input type="checkbox" name="tools" value="Slashy">Slashy</label>
-<label class="check"><input type="checkbox" name="tools" value="Allowance">Allowance</label>
-<label class="check"><input type="checkbox" name="tools" value="Silmaril">Silmaril</label>
-<label class="check"><input type="checkbox" name="tools" value="Other">Other</label>
-</div>
-</div>
-</fieldset>
-<label class="check confirm"><input type="checkbox" name="confirm" required>We built this tonight, and our video is 2 minutes or less.</label>
-<div class="hp" aria-hidden="true"><label>Fax<input type="text" name="fax" tabindex="-1" autocomplete="off"></label></div>
-<button class="button" type="submit">Submit project</button>
-<p class="form-status" id="submitStatus" role="status" aria-live="polite"></p>
-</form>
+<p class="submit-fallback secondary">Form not loading? <a href="https://docs.google.com/forms/d/e/1FAIpQLSdIjXGxNhaFxyw6tlOJWFneIw8m8r9bgaqksj1sY1HaQg4qXg/viewform" target="_blank" rel="noopener">Open it in a new tab ↗</a></p>
 </div>
 </section>
 </main>

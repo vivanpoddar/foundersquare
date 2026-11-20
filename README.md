@@ -46,7 +46,6 @@ All email links use `team@foundersquare.org`, including the footer copy-address 
 - A run-of-show schedule
 - Future event dates
 - The Luma, Partiful and social URLs in `LINKS`
-- Logos for Allowance and Clusy on `/sponsors`
 
 ## Future work
 

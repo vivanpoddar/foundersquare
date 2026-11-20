@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="160" height="160" viewBox="0 0 160 160" role="img" aria-label="Aristo Scholars">
+  <g fill="none" stroke="#1c1917" stroke-width="8" stroke-linecap="square" stroke-linejoin="miter">
+    <path d="M48 48C52 34 64 24 80 24s28 10 32 24"/>
+    <path d="M32 56h96"/>
+    <path d="M28 72h104"/>
+    <path d="M36 112h88"/>
+    <path d="M24 128h112"/>
+    <path d="M48 80v32"/>
+    <path d="M64 80v32"/>
+    <path d="M80 80v32"/>
+    <path d="M96 80v32"/>
+    <path d="M112 80v32"/>
+  </g>
+</svg>

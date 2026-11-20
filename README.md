@@ -5,7 +5,8 @@ Static website for Founder Square, a student-run UC Berkeley builder community. 
 - `/`: community homepage, waterfront photograph, upcoming event, About, registration banner.
 - `/events`: Agent's After Dark Build Night on Monday, November 16, 2026, 4–9 PM, Chou Hall N100 at Berkeley Haas. Future events are announced only when confirmed.
 - `/build-night`: event details, prizes, registration on Luma (email as fallback), FAQ.
-- `/sponsor`: "Sponsors", everything for sponsors on one page: the current event's sponsors and partners (a line and a link each; logos can be added per card), what sponsors get, and the sponsorship form that goes to the team (see below). `/sponsors` redirects here.
+- `/sponsors`: "Our Sponsors", logo and name for every sponsor and partner so far. Logos are in `assets/sponsors/`; a sponsor without a file shows its name in type.
+- `/sponsor`: "Sponsor us", what sponsors get and the sponsorship form that goes to the team (see below).
 - `/submit`: the Build Night project submission form: team, members, one track, a 2-minute demo video link and the project link. Resubmitting with the same team name replaces the entry. Closes at 8:05 PM Pacific on Nov 16 (`SUBMIT_CLOSES` overrides). Judges read them in `/admin`, filtered by track, or copy them as CSV.
 - `/updates`: "Hear about the next event", a one-field email signup (the QR code target for event welcomes). The same form sits in every page's footer.
 - `/admin`: team sign-in with the shared code; shows every message sent through the contact form, with reply and "mark handled", plus the event email list with "Copy all emails".
@@ -45,12 +46,11 @@ All email links use `team@foundersquare.org`, including the footer copy-address 
 - A run-of-show schedule
 - Future event dates
 - The Luma, Partiful and social URLs in `LINKS`
-- Sponsor logos on `/sponsor`
+- Logos for Allowance and Clusy on `/sponsors`
 
 ## Future work
 
 - A Team page with the people behind Founder Square.
-- Logos on the sponsors page once the files are collected.
 
 ## Local preview
 

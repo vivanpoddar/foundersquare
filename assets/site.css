@@ -633,3 +633,23 @@ html{scroll-padding-top:112px}
 .contact-field + .about{padding-top:120px}
 @media(max-width:900px){.contact-field + .about{padding-top:90px}}
 @media(max-width:600px){.contact-field + .about{padding-top:72px}}
+
+/* ---- events: upcoming teaser and past events ---- */
+.event-row-soon .event-date strong{font-size:52px}
+.past-events{margin-top:65px}
+.past-events .event-aside p{display:block}
+
+/* ---- our sponsors ---- */
+.sponsor-wall{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.sponsor-tile{background:var(--surface);padding:30px 28px;display:flex;flex-direction:column;gap:6px}
+.sponsor-tile .sponsor-mark{width:72px;height:72px;display:flex;align-items:center;justify-content:center;background:#ffffff;padding:12px;margin-bottom:18px}
+.sponsor-tile .sponsor-mark img{width:100%;height:100%;object-fit:contain}
+.sponsor-tile h3{font-size:clamp(26px,2.4vw,34px)}
+.sponsor-tile h3 a:hover{text-decoration:underline}
+.sponsor-tile .secondary{margin:0 0 10px}
+.sponsor-tile p:last-child{margin:0}
+.sponsor-section{padding-bottom:90px}
+.sponsor-section>h2{font-size:var(--lead);margin-bottom:12px}
+.sponsor-section>.secondary{margin:0 0 30px}
+@media(max-width:900px){.sponsor-wall{grid-template-columns:1fr 1fr}}
+@media(max-width:600px){.sponsor-wall{grid-template-columns:1fr}.sponsor-section{padding-bottom:60px}.past-events{margin-top:45px}}

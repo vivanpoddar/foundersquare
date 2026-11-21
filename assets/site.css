@@ -653,3 +653,5 @@ html{scroll-padding-top:112px}
 .sponsor-section>.secondary{margin:0 0 30px}
 @media(max-width:900px){.sponsor-wall{grid-template-columns:1fr 1fr}}
 @media(max-width:600px){.sponsor-wall{grid-template-columns:1fr}.sponsor-section{padding-bottom:60px}.past-events{margin-top:45px}}
+.yc-batch{display:flex;align-items:center;gap:7px}
+.yc-batch img{width:14px;height:14px;flex:none}
